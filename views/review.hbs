@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write Your Review</title>
+  <link rel="stylesheet" href="./review.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo"
+      class="logo">
+  </nav>
+
+  <div class="form-container">
+    <h1>Write Your Review about {{display}}</h1>
+
+    <form action="/review_submited" method="post" id="reviewForm">
+      <input type="hidden" name="category" value="{{display}}" />
+
+      <!-- Movie Name Field -->
+      <label for="movie-name">Name of the {{display}}</label>
+      <input type="text" placeholder="{{display}} name" name="movie_name" id="movie-name" required />
+      <small id="movie-name-error" style="color:red; display:none;"></small>
+
+      <!-- Review Textarea -->
+      <label for="message">Review</label>
+      <textarea placeholder="Write your review..." name="review" id="message" required></textarea>
+      <small id="review-error" style="color:red; display:none;"></small>
+
+
+      <div class="button-group">
+        <button type="submit">Submit Review</button>
+        <a href="/dashboard" class="back-button">Back</a>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="footer">
+    <div class="copyright">
+      <p>
+        © <span>Copyright</span>
+        <strong class="sitename">Sreelal pv</strong>
+        <span>All Rights Reserved</span>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("reviewForm");
+      const movieNameInput = document.getElementById("movie-name");
+      const movieNameError = document.getElementById("movie-name-error");
+
+      const reviewInput = document.getElementById("message");
+      const reviewError = document.getElementById("review-error");
+
+      function validateMovieName() {
+        const value = movieNameInput.value.trim();
+        const pattern = /^[A-Za-z0-9\s\-']{2,100}$/;
+
+        if (value === "") {
+          movieNameError.textContent = "Movie name is required.";
+          movieNameError.style.display = "block";
+          return false;
+        } else if (value.length < 2) {
+          movieNameError.textContent = "Movie name must be at least 2 characters.";
+          movieNameError.style.display = "block";
+          return false;
+        } else if (value.length > 100) {
+          movieNameError.textContent = "Movie name must be less than 100 characters.";
+          movieNameError.style.display = "block";
+          return false;
+        } else if (!pattern.test(value)) {
+          movieNameError.textContent = "Only letters, numbers, spaces, dashes (-), and apostrophes (') are allowed.";
+          movieNameError.style.display = "block";
+          return false;
+        } else {
+          movieNameError.textContent = "";
+          movieNameError.style.display = "none";
+          return true;
+        }
+      }
+
+      function validateReview() {
+        const value = reviewInput.value.trim();
+
+        if (value === "") {
+          reviewError.textContent = "Review is required.";
+          reviewError.style.display = "block";
+          return false;
+        } else if (value.length < 10) {
+          reviewError.textContent = "Review must be at least 10 characters.";
+          reviewError.style.display = "block";
+          return false;
+        } else if (value.length > 1000) {
+          reviewError.textContent = "Review must be less than 1000 characters.";
+          reviewError.style.display = "block";
+          return false;
+        } else {
+          reviewError.textContent = "";
+          reviewError.style.display = "none";
+          return true;
+        }
+      }
+
+      movieNameInput.addEventListener("input", validateMovieName);
+      reviewInput.addEventListener("input", validateReview);
+
+      form.addEventListener("submit", function (e) {
+        const isMovieValid = validateMovieName();
+        const isReviewValid = validateReview();
+
+        if (!isMovieValid || !isReviewValid) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

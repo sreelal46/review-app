@@ -1,0 +1,8 @@
+# Ignore the node_modules directory (contains installed dependencies)
+node_modules/
+
+# Ignore environment variable files (store sensitive config)
+.env
+
+# Ignore the sessions directory (often used for temporary session data)
+sessions/

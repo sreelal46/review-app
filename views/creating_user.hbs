@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create User</title>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="./creating_user.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo"
+      class="logo">
+  </nav>
+
+  <div class="form-container">
+    <h2>Create a new Account</h2>
+    <strong style="color: #f6121d;">{{msg}}</strong>
+
+    <form action="/new_user" method="post" id="registerForm">
+      <!-- Email -->
+      <label>Email</label>
+      <input type="email" name="email" id="email-field" placeholder="Email" required />
+      <small id="email-error" style="color:red; display:none;"></small>
+
+      <!-- Username -->
+      <label>Username</label>
+      <input type="text" name="name" id="name-field" placeholder="Name" required />
+      <small id="name-error" style="color:red; display:none;"></small>
+
+      <!-- Password -->
+      <label>Password</label>
+      <div class="password-input-wrapper">
+        <input type="password" name="password" id="password" class="password" placeholder="Password" required />
+        <i class="bi bi-eye-slash" id="togglePassword"></i>
+      </div>
+      <small id="password-error" style="color:red; display:none;"></small>
+
+      <div class="button-wrapper">
+        <button type="submit">Submit</button>
+        <a href="/logout" class="back-button">Back</a>
+      </div>
+
+    </form>
+  </div>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright">
+        <p>
+          © <span>Copyright</span>
+          <strong class="sitename">Sreelal pv</strong>
+          <span>All Rights Reserved</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const togglePassword = document.querySelector("#togglePassword");
+      const passwordField = document.querySelector("#password");
+      const emailField = document.getElementById("email-field");
+      const nameField = document.getElementById("name-field");
+      const emailError = document.getElementById("email-error");
+      const passwordError = document.getElementById("password-error");
+      const nameError = document.getElementById("name-error");
+
+      // ✅ Toggle password visibility
+      if (togglePassword && passwordField) {
+        togglePassword.addEventListener("click", function () {
+          const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+          passwordField.setAttribute("type", type);
+
+          // Switch icon class between bi-eye and bi-eye-slash
+          if (this.classList.contains("bi-eye-slash")) {
+            this.classList.remove("bi-eye-slash");
+            this.classList.add("bi-eye");
+          } else {
+            this.classList.remove("bi-eye");
+            this.classList.add("bi-eye-slash");
+          }
+        });
+      }
+
+      // ✅ Email validation
+      function validateEmail() {
+        const email = emailField.value.trim();
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+          emailError.textContent = "Email is required.";
+          emailError.style.display = "block";
+          return false;
+        } else if (!regex.test(email)) {
+          emailError.textContent = "Please enter a valid email address.";
+          emailError.style.display = "block";
+          return false;
+        } else {
+          emailError.textContent = "";
+          emailError.style.display = "none";
+          return true;
+        }
+      }
+
+      // ✅ Password validation
+      function validatePassword() {
+        const password = passwordField.value.trim();
+
+        if (password === "") {
+          passwordError.textContent = "Password is required.";
+          passwordError.style.display = "block";
+          return false;
+        } else if (password.length < 8) {
+          passwordError.textContent = "Password must be at least 8 characters.";
+          passwordError.style.display = "block";
+          return false;
+        } else {
+          passwordError.textContent = "";
+          passwordError.style.display = "none";
+          return true;
+        }
+      }
+
+      // ✅ Name validation
+      function validateName() {
+        const name = nameField.value.trim();
+        const startsWithLetter = /^[A-Za-z]/.test(name);
+
+        if (name === "") {
+          nameError.textContent = "Name is required.";
+          nameError.style.display = "block";
+          return false;
+        } else if (name.length < 3) {
+          nameError.textContent = "Name must be at least 3 characters long.";
+          nameError.style.display = "block";
+          return false;
+        } else if (!startsWithLetter) {
+          nameError.textContent = "Name must start with an alphabet character.";
+          nameError.style.display = "block";
+          return false;
+        } else {
+          nameError.textContent = "";
+          nameError.style.display = "none";
+          return true;
+        }
+      }
+
+      // ✅ Live validation events
+      emailField.addEventListener("input", validateEmail);
+      passwordField.addEventListener("input", validatePassword);
+      nameField.addEventListener("input", validateName);
+
+      // ✅ On form submit
+      const form = document.getElementById("registerForm");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          const validEmail = validateEmail();
+          const validPassword = validatePassword();
+          const validName = validateName();
+
+          if (!validEmail || !validPassword || !validName) {
+            e.preventDefault(); // Stop submission if invalid
+          }
+        });
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

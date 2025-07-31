@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo"
+      class="logo">
+  </nav>
+
+  <div class="action-buttons">
+    <a href="/list" class="action-btn">My Reviews</a>
+    <a href="/logout" class="action-btn logout-btn">Logout</a>
+  </div>
+
+
+  <div class="dashboard-container">
+    <h1>Welcome {{name}}, Give your reviwes</h1>
+
+    <div class="cards-container">
+      <!-- Movies Card -->
+      <div class="card">
+        <img src="https://wallpapercave.com/wp/wp11132305.jpg" alt="Fast and Furious" class="card-image">
+        <div class="card-content">
+          <a href="/movies"><button type="button">Movies</button></a>
+        </div>
+      </div>
+
+      <!-- Anime Card -->
+      <div class="card">
+        <img src="https://wallpapercave.com/wp/wp7836444.jpg" alt="Demon Slayer" class="card-image">
+        <div class="card-content">
+          <a href="/anime"><button type="button">Anime</button></a>
+        </div>
+      </div>
+
+      <!-- TV Series Card (now with Squid Game) -->
+      <div class="card">
+        <img src="https://wallpapercave.com/wp/wp12028188.jpg" alt="Squid Game" class="card-image">
+        <div class="card-content">
+          <a href="/tv-series"><button type="button">TV Shows</button></a>
+        </div>
+      </div>
+
+      <!-- Sports Card -->
+
+      <div class="card">
+        <img
+          src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781608875481/wwe-the-ultimate-poster-collection-9781608875481_lg.jpg"
+          alt="WWE" class="card-image">
+        <div class="card-content">
+          <a href="/sports"><button type="button">Sports</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <div class="copyright">
+        <p>
+          © <span>Copyright</span>
+          <strong class="sitename">Sreelal pv</strong>
+          <span>All Rights Reserved</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Submitted</title>
+
+  <link rel="stylesheet" href="./submited_review.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo"
+      class="logo">
+  </nav>
+
+  <div class="container">
+    <h1>Thanks for your review {{name}}!</h1>
+
+    <div class="review-box">
+      <h4>{{display}} Name:</h4>
+      <p>{{movie_name}}</p>
+
+      <h4>Your Review:</h4>
+      <p>{{review}}</p>
+    </div>
+
+    <div class="button-group">
+      <a href="/{{display_lower}}" class="add-button">Add New Review</a>
+      <a href="/dashboard" class="home-button">Go to Home</a>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="copyright">
+      <p>
+        © <span>Copyright</span>
+        <strong class="sitename">Sreelal pv</strong>
+        <span>All Rights Reserved</span>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

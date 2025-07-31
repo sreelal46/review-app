@@ -1,0 +1,190 @@
+/* Base Reset and Fonts */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  padding: 20px 50px;
+  text-align: center;
+}
+
+.logo {
+  height: 45px;
+  max-width: 150px;
+}
+
+/* Main Container */
+.container {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 90%;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 40px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Headings */
+h1 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+/* Review Box */
+.review-box {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.review-box h4 {
+  color: #e50914;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.review-box p {
+  font-size: 16px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* Buttons */
+a {
+  text-decoration: none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.add-button,
+.home-button {
+  flex: 1 1 48%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid #737373;
+}
+
+.home-button {
+  background-color: #000;
+  color: #fff;
+}
+
+.home-button:hover {
+  background-color: #333;
+}
+
+.add-button {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.home-button:hover {
+  background-color: #f6121d;
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #737373;
+  font-size: 13px;
+  padding: 20px 15px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .copyright {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer .sitename {
+  font-weight: bold;
+  color: #fff;
+  margin: 0 4px;
+}
+
+/* -----------------------
+   Mobile Responsive Fix
+------------------------ */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .logo {
+    height: 36px;
+    max-width: 120px;
+  }
+
+  .container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .review-box h4 {
+    font-size: 18px;
+  }
+
+  .review-box p {
+    font-size: 14px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .add-button,
+  .home-button {
+    flex: 1 1 100%;
+  }
+
+  .footer-content {
+    font-size: 12px;
+  }
+}

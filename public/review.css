@@ -1,0 +1,198 @@
+/* Reset and Font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  padding: 20px 50px;
+  text-align: center;
+}
+
+.logo {
+  height: 45px;
+  max-width: 150px;
+}
+
+/* Form Container */
+.form-container {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 90%;
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 40px;
+  border-radius: 4px;
+}
+
+/* Headings */
+h1 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+/* Form Elements */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+input,
+textarea {
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: none;
+  padding: 16px 20px;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background-color: #454545;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* Buttons */
+.back-button,
+form button[type="submit"] {
+  display: inline-block;
+  width: 48%;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back-button {
+  background-color: #000;
+  color: white;
+  border: 1px solid #737373;
+}
+
+.back-button:hover {
+  background-color: #333;
+}
+
+form button[type="submit"] {
+  background-color: #e50914;
+  color: #fff;
+  border: 1px solid #737373;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #f6121d;
+}
+
+/* Button Group Layout */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 20px 15px;
+  color: #737373;
+  font-size: 13px;
+  text-align: center;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.footer-content {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footer .copyright {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.footer .sitename {
+  font-weight: bold;
+  color: #fff;
+  margin: 0 4px;
+}
+
+/* -----------------------
+   Responsive Styles
+------------------------ */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  .logo {
+    height: 38px;
+    max-width: 120px;
+  }
+
+  .form-container {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input,
+  textarea {
+    font-size: 15px;
+    padding: 14px 16px;
+  }
+
+  .back-button,
+  form button[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-content {
+    font-size: 12px;
+  }
+}
