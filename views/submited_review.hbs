@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Review Submitted</title>
+  <title>Successfully</title>
 
   <link rel="stylesheet" href="./submited_review.css">
 </head>
@@ -16,7 +16,8 @@
   </nav>
 
   <div class="container">
-    <h1>Thanks for your review {{name}}!</h1>
+    <!-- <h1>We appreciate your review {{name}}</h1> -->
+    <h1>Your review has been received, {{name}} — thank you</h1>
 
     <div class="review-box">
       <h4>{{display}} Name:</h4>
@@ -27,8 +28,8 @@
     </div>
 
     <div class="button-group">
-      <a href="/{{display_lower}}" class="add-button">Add New Review</a>
-      <a href="/dashboard" class="home-button">Go to Home</a>
+      <a href="/{{display_lower}}" class="add-button">New Review</a>
+      <a href="/dashboard" class="home-button">Home</a>
     </div>
 
   </div>
