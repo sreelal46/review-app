@@ -44,8 +44,7 @@ touch .env
 
 ## 🌐 Live Demo
 
-[(https://feedback-app-0lrz.onrender.com)](https://review-app-8s7t.onrender.com/)  
-_If the site doesn't open properly in Chrome, try using the Brave browser._
+Not yet
 
 
 ---
